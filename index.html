@@ -22,6 +22,7 @@
   </head>
   <body>
     <div class="container">
+      <div class="weatherApp">
       <div class="CityForm" id="search-form">
         <form>
           <div class="row">
@@ -40,23 +41,22 @@
           </div>
         </form>
       </div>
-      <div class="row">
+      <div class="row weatherInfo">
         <div class="col-sm-4">
           <div class="currently">
             <img src="images/sun.svg" class="current-weather" alt="sun-icon">
-            </div>
-            </div>
+          </div>
+        </div>
         <div class="col-sm-4">
           <div class="currently">
             <br />
             <span id="current-city">Key West</span>
-            <div class="currentTemp" id="current-temp">78° F
-                <a href="#" id="celcius-temp">(°C)</a>
-            </div>
-            <p class = "weatherDescription" id="weather-description">Sunny</p>
-            <br />
-            <span id="current-day-time">Sunday 6:00PM</span>
-
+            <h1 id="current-city">Key West</h1>
+           <ul>
+             <li class="currentTemp" id="current-temp">78°F | °C s</li>
+             <li class = "weatherDescription" id="weather-description">Sunny</li>
+             <li id="current-day-time">Sunday 6:00PM</li>
+           </ul>
           </div>
         </div>
         <div class="col-sm-4">
@@ -132,6 +132,7 @@
     <p class="githubLink">
       <a href="https://github.com/adobias7811/weather-app" rel="github-link" target="_blank">Open-source code</a> by Amanda Dobias
     </p>
+    </div>
   </div>
   <script src="src/index.js"></script>
   </body>

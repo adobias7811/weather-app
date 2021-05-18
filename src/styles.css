@@ -2,7 +2,7 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
-.container {
+.weatherApp {
   max-width: 800px;
   border: 1px solid #157875;
   background: linear-gradient(#157875, #f3bf86);
@@ -23,10 +23,10 @@ a:link {
   color: #0e2832;
 }
 
-p {
+li {
   text-align: center;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 300;
   color: #0e2832;
   padding: 5px;
 }
