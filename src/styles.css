@@ -2,19 +2,76 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
-.container {
+.containerSunny {
   max-width: 800px;
-  border: 1px solid #157875;
-  background: #0775a8;
-  background: -webkit-linear-gradient(top left, #0775a8, #a9dfff);
-  background: -moz-linear-gradient(top left, #0775a8, #a9dfff);
-  background: linear-gradient(to bottom right, #0775a8, #a9dfff);
+  border: 1px solid #124479;
+  background: #ffc79a;
+  background: -webkit-linear-gradient(top left, #ffc79a, #f9df70);
+  background: -moz-linear-gradient(top left, #ffc79a, #f9df70);
+  background: linear-gradient(to bottom right, #ffc79a, #f9df70);
   border-radius: 7px;
   box-shadow: 6px 6px 5px #0e2832;
   display: block;
   margin: 40px auto;
   padding: 20px;
 }
+
+.containerCloudy {
+  max-width: 800px;
+  border: 1px solid #124479;
+  background: #487894;
+  background: -webkit-linear-gradient(top left, #487894, #a3a4a5);
+  background: -moz-linear-gradient(top left, #487894, #a3a4a5);
+  background: linear-gradient(to bottom right, #487894, #a3a4a5);
+  border-radius: 7px;
+  box-shadow: 6px 6px 5px #0e2832;
+  display: block;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.containerPartlyCloudy {
+  max-width: 800px;
+  border: 1px solid #124479;
+  background: #124479;
+  background: -webkit-linear-gradient(top left, #124479, #82b7f0);
+  background: -moz-linear-gradient(top left, #124479, #82b7f0);
+  background: linear-gradient(to bottom right, #124479, #82b7f0);
+  border-radius: 7px;
+  box-shadow: 6px 6px 5px #0e2832;
+  display: block;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.containerRaining {
+  max-width: 800px;
+  border: 1px solid #124479;
+  background: #0a2f58;
+  background: -webkit-linear-gradient(top left, #0a2f58, #50657c);
+  background: -moz-linear-gradient(top left, #0a2f58, #50657c);
+  background: linear-gradient(to bottom right, #0a2f58, #50657c);
+  border-radius: 7px;
+  box-shadow: 6px 6px 5px #0e2832;
+  display: block;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.containerSnowing {
+  max-width: 800px;
+  border: 1px solid #4e37a0;
+  background: #4e37a0;
+  background: -webkit-linear-gradient(top left, #4e37a0, #b8aaeb);
+  background: -moz-linear-gradient(top left, #4e37a0, #b8aaeb);
+  background: linear-gradient(to bottom right, #4e37a0, #b8aaeb);
+  border-radius: 7px;
+  box-shadow: 6px 6px 5px #0e2832;
+  display: block;
+  margin: 40px auto;
+  padding: 20px;
+}
+
 .searchForm,
 .searchButton {
   background-color: rgb(239, 250, 250);
