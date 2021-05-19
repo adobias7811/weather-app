@@ -26,16 +26,7 @@ function formatDate(timestamp) {
   currentDate.innerHTML = `${day} ${hour}:${minutes}`;
 }
 
-// Display Current Weather Default by Geo-location
-
-function currentWeather(response) {
-  console.log();
-  let temperature = Math.round(response.data.main.temp);
-  let currentLocation = document.querySelector("#current-city");
-  let currentTemp = document.querySelector("#current-temp");
-  currentLocation.innerHTML = `${response.data.name}`;
-  currentTemp.innerHTML = `${temperature}°F`;
-}
+// Default View - Display Current Weather Default by Geo-location
 
 function retrievePosition(position) {
   let latitude = position.coords.latitude;
@@ -48,7 +39,7 @@ function retrievePosition(position) {
   let apiKey = "9c82592b70e35c40d22dd8f8facfbc64";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${unit}`;
 
-  axios.get(apiUrl).then(currentWeather);
+  axios.get(apiUrl).then(showWeather);
 }
 navigator.geolocation.getCurrentPosition(retrievePosition);
 
