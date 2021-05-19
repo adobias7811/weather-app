@@ -64,14 +64,9 @@ li {
   position: relative;
   top: -20px;
   bottom: 0;
-  margin: 10px auto;
   font-size: 24px;
 }
 
-.today-forecast {
-  font-size: 20px;
-  color: #0e2832;
-}
 .currentWeather {
   width: 200px;
   margin: 0 auto;
@@ -82,14 +77,15 @@ li {
 .forecast {
   color: #0e2832;
   text-align: center;
+  font-size: 20px;
 }
 
 .forecast-weather-icon {
   width: 40px;
-  color: #0e2832;
+  margin: 0;
 }
 
-.h1 {
+h1 {
   text-align: center;
   font-size: 30px;
 }
