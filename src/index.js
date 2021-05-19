@@ -58,12 +58,24 @@ navigator.geolocation.getCurrentPosition(retrievePosition);
 //////////// Search & Display Specified Weather for Location
 
 function showWeather(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#current-temp");
   let weatherDescription = document.querySelector("#weather-description");
+  let maxTemp = Math.round(response.data.main.temp_max);
+  let maxTempElement = document.querySelector("#high-temp");
+  let minTemp = Math.round(response.data.main.temp_min);
+  let minTempElement = document.querySelector("#low-temp");
+  let humidityElement = document.querySelector("#humidity");
+  let windSpeed = Math.round(response.data.wind.speed);
+  let windSpeedElement = document.querySelector("#wind-speed");
 
   temperatureElement.innerHTML = `${temperature}°F`;
   weatherDescription.innerHTML = response.data.weather[0].description;
+  maxTempElement.innerHTML = `${maxTemp}°F`;
+  minTempElement.innerHTML = `${minTemp}°F`;
+  humidityElement.innerHTML = `${response.data.main.humidity}%`;
+  windSpeedElement.innerHTML = `${windSpeed} mph`;
 }
 
 function searchCity(event) {
