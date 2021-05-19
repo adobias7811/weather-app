@@ -25,7 +25,7 @@ function formatTime(currentDate) {
   if (minutes < 10) {
     return `0${minutes}`;
   }
-  currentTime.innerHTML = `${hour}:${minutes}`;
+  currentTime.innerHTML = ` ${hour}:${minutes}`;
 }
 formatTime(currentDate);
 

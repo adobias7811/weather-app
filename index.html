@@ -43,35 +43,34 @@
       </div>
       <div class="row weatherInfo">
         <div class="col-sm-4">
-          <div class="currently">
-            <img src="images/sun.svg" class="current-weather" alt="sun-icon">
-          </div>
+            <img src="images/sun.svg" id="current-weather" alt="sun-icon">
         </div>
         <div class="col-sm-4">
-          <div class="currently">
             <h1 class = "currentCity" id="current-city">Key West</h1>
            <ul>
-             <li class="currentTemp" id="current-temp">78° <span id="temp-unit">F | °C</span></li>
+             <li class="currentTemp" id="current-temp">78° 
+               <span class="tempUnit">°F | <a href="#" id="celcius-link">°C</a>
+                </span>
+              </li>
              <li class = "weatherDescription" id="weather-description">Sunny</li>
-             <li id="current-day">Sunday</li>
-             <li id="current-time"> 6:00PM</li>
+             <li><span id="current-day">Sunday</span><span id="current-time">6:00PM</span></li>
            </ul>
-          </div>
         </div>
         <div class="col-sm-4">
-            <div class="row">
-              <div class="col-12 today-forecast">
-                High <span class="high-temp">78°F </span>
-                <br />
+          <ul>
+            <li>
+               High <span class="high-temp">78°F </span>
+            </li>
+            <li>
                 Low <span class="low-temp">72°F</span>
-              </div>
-              <br />
-              <div class="col-12 today-forecast">
+            </li>
+            <li>
                 <i class="fas fa-umbrella"></i> 15%
-                <br />
+            </li>
+            <li>
                 <i class="fas fa-wind"></i> 10 mph
-              </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </div>
     <div class="forecast">5 Day Forecast for <span class="currentCity">Key West</span>
