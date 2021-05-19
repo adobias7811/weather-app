@@ -2,13 +2,15 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
-.weatherApp {
+.container {
   max-width: 800px;
   border: 1px solid #157875;
   background: linear-gradient(#157875, #f3bf86);
   border-radius: 7px;
   box-shadow: 6px 6px 5px #0e2832;
-  margin: 40px;
+  display: block;
+  margin: 40px auto;
+  padding: 20px;
 }
 .searchForm,
 .searchButton {
@@ -16,18 +18,26 @@ body {
   color: #1a404c;
   font-size: 18px;
   font-weight: 600;
-  border-radius: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 5px;
 }
 
 a:link {
   color: #0e2832;
 }
 
+ul {
+  margin: 20px;
+  padding: 0px;
+}
+
 li {
+  list-style: none;
+  color: #0e2832;
   text-align: center;
   font-size: 24px;
   font-weight: 300;
-  color: #0e2832;
   padding: 5px;
 }
 
