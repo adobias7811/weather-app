@@ -1,3 +1,34 @@
+// Display Date & Time
+
+let currentDate = new Date();
+
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let day = days[currentDate.getDay()];
+let currentDay = document.querySelector("#current-day");
+currentDay.innerHTML = `${day}`;
+
+function formatTime(currentDate) {
+  let currentTime = document.querySelector("#current-time");
+  let hour = currentDate.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let minutes = currentDate.getMinutes();
+  if (minutes < 10) {
+    return `0${minutes}`;
+  }
+  currentTime.innerHTML = `${hour}:${minutes}`;
+}
+formatTime(currentDate);
+
 // Display Current Weather Default by Geo-location
 
 function currentWeather(response) {
@@ -52,39 +83,3 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
 
 ///////////////
-
-// Return to Current City Button
-
-function getPosition(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(retrievePosition);
-}
-
-let returnToCurrent = document.querySelector("#to-current-city");
-returnToCurrent.addEventListener("click", getPosition);
-
-//////////
-
-// Format Date & Time and Display on Page
-let currentDate = new Date();
-
-function formatDayTime(date) {
-  let hour = date.getHours();
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    return `0${minutes}`;
-  }
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[date.getDay()];
-  let currentTime = document.querySelector("#current-day-time");
-  currentTime.innerHTML = `${day} ${hour}:${minutes}`;
-}
-formatDayTime(currentDate);
