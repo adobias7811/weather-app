@@ -78,6 +78,11 @@ li {
   padding: 0;
 }
 
+.forecast {
+  color: #0e2832;
+  text-align: center;
+}
+
 .forecast-weather-icon {
   width: 40px;
   color: #0e2832;
@@ -87,18 +92,9 @@ li {
   text-align: center;
 }
 
-.card {
-  color: #0e2832;
-  margin: 5px;
-  padding: 10px;
-  text-align: center;
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px #0e2832;
-}
-
-.card-title {
+h2 {
   font-size: 16px;
-  text-align: center;
+  font-weight: 500;
 }
 
 .githubLink {
