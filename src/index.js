@@ -1,33 +1,30 @@
-// Display Date & Time
+// Calcutale Date & Time
 
-let currentDate = new Date();
-
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[currentDate.getDay()];
-let currentDay = document.querySelector("#current-day");
-currentDay.innerHTML = `${day}`;
-
-function formatTime(currentDate) {
-  let currentTime = document.querySelector("#current-time");
-  let hour = currentDate.getHours();
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hour = date.getHours();
   if (hour < 10) {
     hour = `0${hour}`;
   }
-  let minutes = currentDate.getMinutes();
+  let minutes = date.getMinutes();
   if (minutes < 10) {
     return `0${minutes}`;
   }
-  currentTime.innerHTML = ` ${hour}:${minutes}`;
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+
+  let currentDate = document.querySelector("#current-day-time");
+
+  currentDate.innerHTML = `${day} ${hour}:${minutes}`;
 }
-formatTime(currentDate);
 
 // Display Current Weather Default by Geo-location
 
@@ -69,6 +66,7 @@ function showWeather(response) {
   let humidityElement = document.querySelector("#humidity");
   let windSpeed = Math.round(response.data.wind.speed);
   let windSpeedElement = document.querySelector("#wind-speed");
+  let dateElement = document.querySelector("#current-day");
 
   temperatureElement.innerHTML = `${temperature}°F`;
   weatherDescription.innerHTML = response.data.weather[0].description;
@@ -76,6 +74,7 @@ function showWeather(response) {
   minTempElement.innerHTML = `${minTemp}°F`;
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
   windSpeedElement.innerHTML = `${windSpeed} mph`;
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 function searchCity(event) {
