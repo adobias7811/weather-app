@@ -5,7 +5,10 @@ body {
 .container {
   max-width: 800px;
   border: 1px solid #157875;
-  background: linear-gradient(#157875, #f3bf86);
+  background: #0775a8;
+  background: -webkit-linear-gradient(top left, #0775a8, #a9dfff);
+  background: -moz-linear-gradient(top left, #0775a8, #a9dfff);
+  background: linear-gradient(to bottom right, #0775a8, #a9dfff);
   border-radius: 7px;
   box-shadow: 6px 6px 5px #0e2832;
   display: block;
@@ -85,14 +88,12 @@ li {
 }
 
 .card {
-  background-color: rgb(21, 120, 117);
   color: #0e2832;
-  border: 1px solid #1a404c;
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px #0e2832;
   margin: 5px;
   padding: 10px;
   text-align: center;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px #0e2832;
 }
 
 .card-title {
