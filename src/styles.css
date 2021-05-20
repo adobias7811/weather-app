@@ -67,6 +67,12 @@ li {
   font-size: 24px;
 }
 
+.weather-temperature img {
+  margin-right: 5px;
+  height: 200px;
+  width: 200px;
+}
+
 .currentWeather {
   width: 200px;
   margin: 0 auto;

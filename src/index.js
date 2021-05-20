@@ -41,6 +41,7 @@ function showWeather(response) {
   let windSpeed = Math.round(response.data.wind.speed);
   let windSpeedElement = document.querySelector("#wind-speed");
   let dateElement = document.querySelector("#current-day");
+  let iconElement = document.querySelector("icon");
 
   temperatureElement.innerHTML = `${temperature}°F`;
   weatherCondition.innerHTML = response.data.weather[0].main;
@@ -49,6 +50,10 @@ function showWeather(response) {
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
   windSpeedElement.innerHTML = `${windSpeed} mph`;
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 ////////// Default View - Display Current Weather Default by Geo-location
 
