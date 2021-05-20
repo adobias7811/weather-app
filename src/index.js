@@ -73,21 +73,25 @@ navigator.geolocation.getCurrentPosition(retrievePosition);
 
 //////////// Search for desired city
 
-function searchCity(event) {
-  event.preventDefault();
-  let currentCity = document.querySelector("#current-city");
-  let searchCity = document.querySelector("#city-form");
-  let apiKey = "9c82592b70e35c40d22dd8f8facfbc64";
-
+function searchCity(city) {
   let units = "imperial";
-  let city = searchCity.value;
+  let apiKey = "9c82592b70e35c40d22dd8f8facfbc64";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-  currentCity.innerHTML = searchCity.value;
+  let currentCity = document.querySelector("#current-city");
+  currentCity.innerHTML = city;
   axios.get(apiUrl).then(showWeather);
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  searchCity(cityInputElement.value);
+}
+
+searchCity("Key West");
+
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", searchCity);
+searchForm.addEventListener("submit", handleSubmit);
 
 ///////// In Development City Search Items
 
