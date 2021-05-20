@@ -20,10 +20,22 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
+  return `${day} ${hour}:${minutes}`;
+}
 
-  let currentDate = document.querySelector("#current-day-time");
-
-  currentDate.innerHTML = `${day} ${hour}:${minutes}`;
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
 }
 
 ////////// Display Specified Weather for Location
@@ -40,11 +52,11 @@ function showWeather(response) {
   let humidityElement = document.querySelector("#humidity");
   let windSpeed = Math.round(response.data.wind.speed);
   let windSpeedElement = document.querySelector("#wind-speed");
-  let dateElement = document.querySelector("#current-day");
+  let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("icon");
 
   temperatureElement.innerHTML = `${temperature}°F`;
-  weatherCondition.innerHTML = response.data.weather[0].main;
+  weatherCondition.innerHTML = response.data.weather[0].description;
   maxTempElement.innerHTML = `${maxTemp}°F`;
   minTempElement.innerHTML = `${minTemp}°F`;
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
@@ -54,6 +66,7 @@ function showWeather(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  iconElement.setAttribute("alt", "response.data.weather[0].description");
 }
 ////////// Default View - Display Current Weather Default by Geo-location
 
@@ -89,6 +102,3 @@ function searchCity(event) {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
-
-///////////////
-//Weather Condition Icons
