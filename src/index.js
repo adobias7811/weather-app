@@ -27,7 +27,6 @@ function formatDate(timestamp) {
 
 function showWeather(response) {
   console.log(response.data);
-  let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#current-temp");
   let weatherCondition = document.querySelector("#weather-description");
   let maxTemp = Math.round(response.data.main.temp_max);
@@ -40,7 +39,9 @@ function showWeather(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
-  temperatureElement.innerHTML = `${temperature}°F`;
+  fahrenheitTemperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
   weatherCondition.innerHTML = response.data.weather[0].description;
   maxTempElement.innerHTML = `${maxTemp}°F`;
   minTempElement.innerHTML = `${minTemp}°F`;
@@ -88,32 +89,34 @@ function handleSubmit(event) {
   searchCity(cityInputElement.value);
 }
 
-searchCity("Key West");
-
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
-///////// In Development City Search Items
+//////////// Convert to Celcius/Fahrenheit
 
-//let apiKey = "9c82592b70e35c40d22dd8f8facfbc64";
-//let units = "imperial";
-//let city = "Paris";
-//let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+function displayCelciusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temp");
+  fahrenheitLink.classList.remove("active");
+  celciusLink.classList.add("active");
+  let celciusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+}
 
-//axios.get(apiUrl).then(showWeather);
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temp");
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
 
-///////////////////////////////////
-//function formatDay(timestamp) {
-//  let date = new Date(timestamp * 1000);
-// let day = date.getDay();
-//  let days = [
-//    "Sunday",
-//    "Monday",
-//    "Tuesday",
-//    "Wednesday",
-//    "Thursday",
-//    "Friday",
-//    "Saturday",
-//  ];
-//  return days[day];
-//}
+let fahrenheitTemperature = null;
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", displayCelciusTemperature);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+searchCity("Key West");
