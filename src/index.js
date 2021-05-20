@@ -23,21 +23,6 @@ function formatDate(timestamp) {
   return `${day} ${hour}:${minutes}`;
 }
 
-function formatDay(timestamp) {
-  let date = new Date(timestamp * 1000);
-  let day = date.getDay();
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  return days[day];
-}
-
 ////////// Display Specified Weather for Location
 
 function showWeather(response) {
@@ -53,7 +38,7 @@ function showWeather(response) {
   let windSpeed = Math.round(response.data.wind.speed);
   let windSpeedElement = document.querySelector("#wind-speed");
   let dateElement = document.querySelector("#date");
-  let iconElement = document.querySelector("icon");
+  let iconElement = document.querySelector("#icon");
 
   temperatureElement.innerHTML = `${temperature}°F`;
   weatherCondition.innerHTML = response.data.weather[0].description;
@@ -68,6 +53,7 @@ function showWeather(response) {
   );
   iconElement.setAttribute("alt", "response.data.weather[0].description");
 }
+
 ////////// Default View - Display Current Weather Default by Geo-location
 
 function retrievePosition(position) {
@@ -102,3 +88,28 @@ function searchCity(event) {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCity);
+
+///////// In Development City Search Items
+
+//let apiKey = "9c82592b70e35c40d22dd8f8facfbc64";
+//let units = "imperial";
+//let city = "Paris";
+//let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+
+//axios.get(apiUrl).then(showWeather);
+
+///////////////////////////////////
+//function formatDay(timestamp) {
+//  let date = new Date(timestamp * 1000);
+// let day = date.getDay();
+//  let days = [
+//    "Sunday",
+//    "Monday",
+//    "Tuesday",
+//    "Wednesday",
+//    "Thursday",
+//    "Friday",
+//    "Saturday",
+//  ];
+//  return days[day];
+//}
