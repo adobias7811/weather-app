@@ -23,6 +23,30 @@ function formatDate(timestamp) {
   return `${day} ${hour}:${minutes}`;
 }
 
+/////////// Display Forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class=row>`;
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+          <h2 id="forecast-day-1">${day}</h2>
+            <img src="http://openweathermap.org/img/wn/01d@2x.png" class="forecast-weather-icon" id="forecast-icon-1" alt="sun-icon">
+            <p class="forecast-temps">
+              <span class="forecast-temp-max">80°</span> <br />
+              <span class="forecast-temp-min">74°</span>
+            </p>
+        </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 ////////// Display Specified Weather for Location
 
 function showWeather(response) {
@@ -112,6 +136,8 @@ function displayFahrenheitTemperature(event) {
 }
 
 let fahrenheitTemperature = null;
+
+displayForecast();
 
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", displayCelciusTemperature);
