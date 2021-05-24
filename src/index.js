@@ -134,8 +134,7 @@ function searchCity(city) {
   let units = "imperial";
   let apiKey = "9c82592b70e35c40d22dd8f8facfbc64";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-  let currentCity = document.querySelector("#current-city");
-  currentCity.innerHTML = city;
+  document.querySelector("#current-city").innerHTML = city;
   axios.get(apiUrl).then(showWeather);
 }
 
