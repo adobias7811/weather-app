@@ -101,6 +101,10 @@ li {
   margin: 0;
 }
 
+.forecast-temp-min {
+  color: rgb(26, 49, 55, 60%);
+}
+
 h1 {
   text-align: center;
   font-size: 30px;

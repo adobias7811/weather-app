@@ -59,7 +59,7 @@ function displayForecast(response) {
             <p class="forecast-temps">
               <span class="forecast-temp-max">${Math.round(
                 forecastDay.temp.max
-              )}° </span> <br />
+              )}° </span> |
               <span class="forecast-temp-min">${Math.round(
                 forecastDay.temp.min
               )}° </span>
@@ -153,32 +153,5 @@ function handleSubmit(event) {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
-
-//////////// Convert to Celcius/Fahrenheit
-
-function displayCelciusTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#current-temp");
-  fahrenheitLink.classList.remove("active");
-  celciusLink.classList.add("active");
-  let celciusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
-  temperatureElement.innerHTML = Math.round(celciusTemperature);
-}
-
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#current-temp");
-  celciusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-let fahrenheitTemperature = null;
-
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", displayCelciusTemperature);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 searchCity("Key West");
