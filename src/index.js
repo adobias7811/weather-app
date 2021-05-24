@@ -111,6 +111,64 @@ function showWeather(response) {
   );
   iconElement.setAttribute("alt", "response.data.weather[0].description");
 
+  let outsideWeather = response.data.weather[0].main;
+  if (
+    outsideWeather === "Clouds" ||
+    "Mist" ||
+    "Smoke" ||
+    "Haze" ||
+    "Fog" ||
+    "Sand" ||
+    "Dust"
+  ) {
+    document
+      .querySelector("#background")
+      .classList.remove(
+        "sunnyContainer",
+        "rainingContainer",
+        "snowingContainer"
+      );
+    document.querySelector("#background").classList.add("cloudyContainer");
+  }
+
+  if (
+    outsideWeather === "Rain" ||
+    "Squall" ||
+    "Tornado" ||
+    "Drizzle" ||
+    "Thunderstorm"
+  ) {
+    document
+      .querySelector("#background")
+      .classList.remove(
+        "sunnyContainer",
+        "cloudyContainer",
+        "snowingContainer"
+      );
+    document.querySelector("#background").classList.add("rainingContainer");
+  }
+
+  if (outsideWeather === "Snow" || "Ash") {
+    document
+      .querySelector("#background")
+      .classList.remove(
+        "sunnyContainer",
+        "cloudyContainer",
+        "rainingContainer"
+      );
+    document.querySelector("#background").classList.add("snowingContainer");
+  }
+  if (outsideWeather === "Clear") {
+    document
+      .querySelector("#background")
+      .classList.remove(
+        "cloudyContainer",
+        "rainingContainer",
+        "snowingContainer"
+      );
+    document.querySelector("#background").classList.add("sunnyContainer");
+  }
+  console.log(response.data);
   getForecast(response.data.coord);
 }
 

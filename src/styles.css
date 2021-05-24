@@ -2,20 +2,6 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
-.sunnyContainer {
-  max-width: 800px;
-  border: 1px solid #124479;
-  background: #ffc79a;
-  background: -webkit-linear-gradient(top left, #ffc79a, #f9df70);
-  background: -moz-linear-gradient(top left, #ffc79a, #f9df70);
-  background: linear-gradient(to bottom right, #ffc79a, #f9df70);
-  border-radius: 7px;
-  box-shadow: 6px 6px 5px #0e2832;
-  display: block;
-  margin: 40px auto;
-  padding: 20px;
-}
-
 .cloudyContainer {
   max-width: 800px;
   border: 1px solid #124479;
@@ -29,19 +15,7 @@ body {
   margin: 40px auto;
   padding: 20px;
 }
-.partlyCloudyContainer {
-  max-width: 800px;
-  border: 1px solid #124479;
-  background: #124479;
-  background: -webkit-linear-gradient(top left, #124479, #82b7f0);
-  background: -moz-linear-gradient(top left, #124479, #82b7f0);
-  background: linear-gradient(to bottom right, #124479, #82b7f0);
-  border-radius: 7px;
-  box-shadow: 6px 6px 5px #0e2832;
-  display: block;
-  margin: 40px auto;
-  padding: 20px;
-}
+
 .rainingContainer {
   max-width: 800px;
   border: 1px solid #124479;
@@ -62,6 +36,20 @@ body {
   background: -webkit-linear-gradient(top left, #4e37a0, #b8aaeb);
   background: -moz-linear-gradient(top left, #4e37a0, #b8aaeb);
   background: linear-gradient(to bottom right, #4e37a0, #b8aaeb);
+  border-radius: 7px;
+  box-shadow: 6px 6px 5px #0e2832;
+  display: block;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.sunnyContainer {
+  max-width: 800px;
+  border: 1px solid #124479;
+  background: #ffc79a;
+  background: -webkit-linear-gradient(top left, #ffc79a, #f9df70);
+  background: -moz-linear-gradient(top left, #ffc79a, #f9df70);
+  background: linear-gradient(to bottom right, #ffc79a, #f9df70);
   border-radius: 7px;
   box-shadow: 6px 6px 5px #0e2832;
   display: block;
