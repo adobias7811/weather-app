@@ -5,10 +5,8 @@ body {
 .cloudyContainer {
   max-width: 800px;
   border: 1px solid #124479;
-  background: #487894;
-  background: -webkit-linear-gradient(top left, #487894, #a3a4a5);
-  background: -moz-linear-gradient(top left, #487894, #a3a4a5);
-  background: linear-gradient(to bottom right, #487894, #a3a4a5);
+  background: #376e8d;
+  background: linear-gradient(#376e8d, #cbccce);
   border-radius: 7px;
   box-shadow: 6px 6px 5px #0e2832;
   display: block;
@@ -20,9 +18,8 @@ body {
   max-width: 800px;
   border: 1px solid #124479;
   background: #0a2f58;
-  background: -webkit-linear-gradient(top left, #0a2f58, #50657c);
-  background: -moz-linear-gradient(top left, #0a2f58, #50657c);
-  background: linear-gradient(to bottom right, #0a2f58, #50657c);
+  background: linear-gradient(#0a2f58, #c1c7ce);
+  color: white;
   border-radius: 7px;
   box-shadow: 6px 6px 5px #0e2832;
   display: block;
@@ -32,10 +29,8 @@ body {
 .snowingContainer {
   max-width: 800px;
   border: 1px solid #4e37a0;
-  background: #4e37a0;
-  background: -webkit-linear-gradient(top left, #4e37a0, #b8aaeb);
-  background: -moz-linear-gradient(top left, #4e37a0, #b8aaeb);
-  background: linear-gradient(to bottom right, #4e37a0, #b8aaeb);
+  background: #3f2d80;
+  background: linear-gradient(#3f2d80, #b8aaeb);
   border-radius: 7px;
   box-shadow: 6px 6px 5px #0e2832;
   display: block;
@@ -47,9 +42,7 @@ body {
   max-width: 800px;
   border: 1px solid #124479;
   background: #ffc79a;
-  background: -webkit-linear-gradient(top left, #ffc79a, #f9df70);
-  background: -moz-linear-gradient(top left, #ffc79a, #f9df70);
-  background: linear-gradient(to bottom right, #ffc79a, #f9df70);
+  background: linear-gradient(#ffc79a, #f9df70);
   border-radius: 7px;
   box-shadow: 6px 6px 5px #0e2832;
   display: block;
