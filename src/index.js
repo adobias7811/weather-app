@@ -52,9 +52,12 @@ function displayForecast(response) {
         forecastHTML +
         `<div class="col-2">
           <h2 id="forecast-day-1">${formatDay(forecastDay.dt)}</h2>
-          <img src="http://openweathermap.org/img/wn/${
-            forecastDay.weather[0].icon
-          }@2x.png" class="forecast-weather-icon" id="forecast-icon-1" alt="sun-icon">
+          <p class="future-temp" class="icon">
+          ${weatherIcons(
+            forecastDay.weather[0].icon,
+            forecastDay.weather[0].main
+          )}
+          </p>
             <p class="forecast-temps">
               <span class="forecast-temp-max">${Math.round(
                 forecastDay.temp.max
@@ -69,6 +72,37 @@ function displayForecast(response) {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+////////// Weather Icons
+
+function weatherIcons(weatherIcon, currentWeather) {
+  let forecastIcon = "";
+  if (weatherIcon === "01d") {
+    forecastIcon = '<img src="img/icons/sunny.svg">';
+  } else if (weatherIcon === "01n") {
+    forecastIcon = '<img src="img/icons/night_clear.png">';
+  } else if (currentWeather === "Clouds" || currentWeather === "Fog") {
+    forecastIcon = '<img src="img/icons/cloudy.svg">';
+  } else if (
+    currentWeather === "Thunderstorm" ||
+    currentWeather === "Tornado"
+  ) {
+    forecastIcon = '<img src="img/icons/tstorms.svg">';
+  } else if (currentWeather === "Rain") {
+    forecastIcon = '<img src="img/icons/rain.svg">';
+  } else if (currentWeather === "Drizzle") {
+    forecastIcon = '<img src="img/icons/chancerain.svg">';
+  } else if (currentWeather === "Snow") {
+    forecastIcon = '<img src="img/icons/snow.svg">';
+  } else if (weatherIcon === "02d") {
+    forecastIcon = '<img src="img/icons/partlycloudy.svg">';
+  } else if (weatherIcon === "02n") {
+    forecastIcon = '<img src="img/icons/cloudy.svg">';
+  } else {
+    forecastIcon = '<img src="img/icons/sunny.svg">';
+  }
+  return forecastIcon;
 }
 
 ////////// Get Forecast
@@ -103,11 +137,10 @@ function showWeather(response) {
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
   windSpeedElement.innerHTML = `${windSpeed} mph`;
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
-  iconElement.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  iconElement.innerHTML = weatherIcons(
+    response.data.weather[0].icon,
+    response.data.weather[0].main
   );
-  iconElement.setAttribute("alt", "response.data.weather[0].description");
 
   let outsideWeather = response.data.weather[0].main;
   if (
@@ -127,7 +160,7 @@ function showWeather(response) {
         "snowingContainer"
       );
     document.querySelector("#background").classList.add("cloudyContainer");
-    document.querySelector("#icon").setAttribute("src", "icons/cloudy.svg");
+    document.querySelector("#icon").setAttribute("src", "img/icons/cloudy.svg");
   }
 
   if (
@@ -145,7 +178,7 @@ function showWeather(response) {
         "snowingContainer"
       );
     document.querySelector("#background").classList.add("rainingContainer");
-    document.querySelector("#icon").setAttribute("src", "icons/rain.svg");
+    document.querySelector("#icon").setAttribute("src", "img/icons/rain.svg");
   }
 
   if (outsideWeather === "Snow" || outsideWeather === "Ash") {
@@ -157,7 +190,7 @@ function showWeather(response) {
         "rainingContainer"
       );
     document.querySelector("#background").classList.add("snowingContainer");
-    document.querySelector("#icon").setAttribute("src", "icons/snow.svg");
+    document.querySelector("#icon").setAttribute("src", "img/icons/snow.svg");
   }
   if (outsideWeather === "Clear") {
     document
@@ -168,7 +201,7 @@ function showWeather(response) {
         "snowingContainer"
       );
     document.querySelector("#background").classList.add("sunnyContainer");
-    document.querySelector("#icon").setAttribute("src", "icons/sunny.svg");
+    document.querySelector("#icon").setAttribute("src", "img/icons/sunny.svg");
   }
 
   console.log(response.data);
