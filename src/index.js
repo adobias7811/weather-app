@@ -43,7 +43,6 @@ function formatDay(timestamp) {
 
 function displayForecast(response) {
   let forecast = response.data.daily;
-
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class=row>`;
@@ -53,9 +52,9 @@ function displayForecast(response) {
         forecastHTML +
         `<div class="col-2">
           <h2 id="forecast-day-1">${formatDay(forecastDay.dt)}</h2>
-            <img src="http://openweathermap.org/img/wn/${
-              forecastDay.weather[0].icon
-            }@2x.png" class="forecast-weather-icon" id="forecast-icon-1" alt="sun-icon">
+          <img src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png" class="forecast-weather-icon" id="forecast-icon-1" alt="sun-icon">
             <p class="forecast-temps">
               <span class="forecast-temp-max">${Math.round(
                 forecastDay.temp.max
@@ -75,7 +74,6 @@ function displayForecast(response) {
 ////////// Get Forecast
 function getForecast(coordinates) {
   let apiKey = "9c82592b70e35c40d22dd8f8facfbc64";
-  let unit = "imperial";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayForecast);
@@ -129,6 +127,7 @@ function showWeather(response) {
         "snowingContainer"
       );
     document.querySelector("#background").classList.add("cloudyContainer");
+    document.querySelector("#icon").setAttribute("src", "icons/cloudy.svg");
   }
 
   if (
@@ -146,6 +145,7 @@ function showWeather(response) {
         "snowingContainer"
       );
     document.querySelector("#background").classList.add("rainingContainer");
+    document.querySelector("#icon").setAttribute("src", "icons/rain.svg");
   }
 
   if (outsideWeather === "Snow" || outsideWeather === "Ash") {
@@ -157,6 +157,7 @@ function showWeather(response) {
         "rainingContainer"
       );
     document.querySelector("#background").classList.add("snowingContainer");
+    document.querySelector("#icon").setAttribute("src", "icons/snow.svg");
   }
   if (outsideWeather === "Clear") {
     document
@@ -167,7 +168,9 @@ function showWeather(response) {
         "snowingContainer"
       );
     document.querySelector("#background").classList.add("sunnyContainer");
+    document.querySelector("#icon").setAttribute("src", "icons/sunny.svg");
   }
+
   console.log(response.data);
   getForecast(response.data.coord);
 }
