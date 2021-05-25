@@ -114,12 +114,12 @@ function showWeather(response) {
   let outsideWeather = response.data.weather[0].main;
   if (
     outsideWeather === "Clouds" ||
-    "Mist" ||
-    "Smoke" ||
-    "Haze" ||
-    "Fog" ||
-    "Sand" ||
-    "Dust"
+    outsideWeather === "Mist" ||
+    outsideWeather === "Smoke" ||
+    outsideWeather === "Haze" ||
+    outsideWeather === "Fog" ||
+    outsideWeather === "Sand" ||
+    outsideWeather === "Dust"
   ) {
     document
       .querySelector("#background")
@@ -133,10 +133,10 @@ function showWeather(response) {
 
   if (
     outsideWeather === "Rain" ||
-    "Squall" ||
-    "Tornado" ||
-    "Drizzle" ||
-    "Thunderstorm"
+    outsideWeather === "Squall" ||
+    outsideWeather === "Tornado" ||
+    outsideWeather === "Drizzle" ||
+    outsideWeather === "Thunderstorm"
   ) {
     document
       .querySelector("#background")
@@ -148,7 +148,7 @@ function showWeather(response) {
     document.querySelector("#background").classList.add("rainingContainer");
   }
 
-  if (outsideWeather === "Snow" || "Ash") {
+  if (outsideWeather === "Snow" || outsideWeather === "Ash") {
     document
       .querySelector("#background")
       .classList.remove(
